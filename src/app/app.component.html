@@ -1,3 +1,7 @@
-<h1>HTML</h1>
-<hr>
-<app-details></app-details>
+<h1>{{title | uppercase}}</h1>
+<h3>Dia de hoje: {{today | date:'dd/MM/yyyy'}}</h3>
+
+<p>preço: {{price | currency}} <br>
+ lucro: {{price | profit:10 | currency}}</p>
+
+ <img [src]= "posterUrl" [width]="posterWidth" />
