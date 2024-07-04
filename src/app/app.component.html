@@ -2,6 +2,20 @@
 <h3>Dia de hoje: {{today | date:'dd/MM/yyyy'}}</h3>
 
 <p>preço: {{price | currency}} <br>
- lucro: {{price | profit:10 | currency}}</p>
+lucro: {{price | profit:10 | currency}}</p>
 
- <img [src]= "posterUrl" [width]="posterWidth" />
+<img [src]= "posterUrl" [width]="posterWidth" />
+<hr>
+<button type="button" [attr.aria-label] = "attributeValue">Botão de Teste</button>
+
+<p [class] = "multipleClasses">
+    Parágrafo para testar binding de classes
+</p>
+
+<p [style] = "multipleStyles">
+    Parágrafo para testar binding de estilos
+</p>
+
+<input #color placeholder="Pick a color">
+<button (click)="setTextColor(color.value)">Set text color</button>
+<p [style.color] = "pColor">Sample Text</p>

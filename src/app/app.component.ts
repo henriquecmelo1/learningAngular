@@ -23,4 +23,15 @@ export class AppComponent {
 
   posterUrl = 'https://www.europanet.com.br/upload/id_produto/107___/107344g.jpg';
   posterWidth = 200;
+  attributeValue = "Movies";
+
+  multipleClasses = 'sample-bgcolor sample-color';
+  multipleStyles = 'color: blue; background-color: yellow;';
+
+  pColor = ''
+  setTextColor(_color: string){
+
+    this.pColor = _color;
+    
+  }
 }
