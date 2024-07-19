@@ -1,11 +1,12 @@
 import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
 import { DetailsMoviesComponent } from '../details-movies/details-movies.component';
 import { DetailsReviewsComponent } from '../details-reviews/details-reviews.component';
+import { DetailsActorsComponent } from '../details-actors/details-actors.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [DetailsMoviesComponent, DetailsReviewsComponent],
+  imports: [DetailsMoviesComponent, DetailsReviewsComponent, DetailsActorsComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
