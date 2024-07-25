@@ -3,10 +3,12 @@ import { DetailsMoviesComponent } from '../details-movies/details-movies.compone
 import { DetailsReviewsComponent } from '../details-reviews/details-reviews.component';
 import { DetailsActorsComponent } from '../details-actors/details-actors.component';
 
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [DetailsMoviesComponent, DetailsReviewsComponent, DetailsActorsComponent],
+  imports: [RouterLink, DetailsMoviesComponent, DetailsReviewsComponent, DetailsActorsComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
