@@ -1,29 +1,10 @@
 <div class="row">
-    <div class="card" style="max-width: 150px;">
-        <img src="/assets/actors/jack-black.webp" class="card-img-top" alt="...">
+    <div class="card" style="max-width: 150px;" *ngFor="let actor of actors">
+        <img [src]= "actor.imageUrl" class="card-img-top" alt="...">
         <div class="card-body">
-            <p class="card-text">Jack Black <br>(Po)</p>
+            <p class="card-text">{{actor.name}} <br>{{actor.role}}</p>
             
         </div>
     </div>
-    <div class="card" style="max-width: 150px;" >
-        <img src="/assets/actors/jack-black.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Jack Black <br>(Po)</p>
-            
-        </div>
-    </div>
-    <div class="card" style="max-width: 150px;">
-        <img src="/assets/actors/jack-black.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Jack Black <br>(Po)</p>
-            
-        </div>
-    </div>
-    <div class="card" style="max-width: 150px;">
-        <img src="/assets/actors/jack-black.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Jack Black <br>(Po)</p>
-        </div>
-    </div>
+
 </div>
