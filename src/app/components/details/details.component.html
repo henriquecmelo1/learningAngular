@@ -12,10 +12,7 @@
                 <div class="card">
                     <div class="card-header" style="background-color: #f0f0f0">Actors</div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Jack Black</li>
-                        <li class="list-group-item">Angelina Jolie</li>
-                        <li class="list-group-item">Jackie Chan</li>
-                        <li class="list-group-item">Seth Rogen</li>
+                        <li class="list-group-item" *ngFor="let actor of actors">{{actor}}</li>
                     </ul>
                     
                 </div>
@@ -24,14 +21,20 @@
                 <div class="card">
                     <div class="card-header" style="background-color: #f0f0f0">Directors</div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Mark Osborne</li>
-                        <li class="list-group-item">John Stevenson</li>
+                        <li class="list-group-item" *ngFor="let director of directors">{{director}}</li>
+                        
                     </ul>
                     
                 </div>
             </div>
             <div class="col-md-4">
-                
+                <div class="card">
+                    <div class="card-header" style="background-color: #f0f0f0">Genres</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let genre of genres">{{genre}}</li>
+                    </ul>
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -42,7 +45,7 @@
     <app-details-actors></app-details-actors>
     <p></p>
     <div class="text-center">
-        <a class="btn btn-warning" routerLink="/details/actors">View all</a>
+        <a class="btn btn-warning" [routerLink]="['/details/actors/'+movieId]">View all</a>
     </div>
 </div>
 
@@ -54,7 +57,7 @@
     </div>
     <p></p>
     <div class="text-center">
-        <a class="btn btn-warning" routerLink="/details/reviews">View all</a>
+        <a class="btn btn-warning" [routerLink]="['/details/reviews/'+movieId]">View all</a>
     </div>
 </div>
 <br>
@@ -65,6 +68,6 @@
     </div> 
     <p></p>
     <div class="text-center">
-        <a class="btn btn-warning" routerLink="/details/movies">View all</a>
+        <a class="btn btn-warning" [routerLink]="['/details/movies/'+movieId]">View all</a>
     </div>
 </div>

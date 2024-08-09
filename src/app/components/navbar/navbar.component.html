@@ -16,8 +16,8 @@
           
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> 
-          <button class="btn btn-outline-success" type="submit" routerLink="/search">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTitle" name="searchTitle"> 
+          <button class="btn btn-outline-success" type="submit" [routerLink]="['/search/'+searchTitle]" >Search</button>
         </form>
         <!-- <button class="btn btn-outline-primary">Login</button> -->
       </div>

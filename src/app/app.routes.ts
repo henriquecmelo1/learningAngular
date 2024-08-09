@@ -12,11 +12,12 @@ import * as Components from './components/index';
 export const routes: Routes = [
     {path: '', component: Components.HomeComponent},
     {path: 'home', component: Components.HomeComponent},
-    {path: 'details', component: Components.DetailsComponent},
-    {path: 'details/actors', component: Components.DetailsActorsComponent},
-    {path: 'details/movies', component: Components.DetailsMoviesComponent},
-    {path: 'details/reviews', component: Components.DetailsReviewsComponent},
-    {path: 'search', component: Components.SearchComponent},
-
+    {path: 'details/:id', component: Components.DetailsComponent},
+    {path: 'details/actors/:id', component: Components.DetailsActorsComponent},
+    {path: 'details/movies/:id', component: Components.DetailsMoviesComponent},
+    {path: 'details/reviews/:id', component: Components.DetailsReviewsComponent},
+    {path: 'search/:movieTitle', component: Components.SearchComponent},
+    //page for non-existent url
+    {path: '**', component: Components.NotFoundComponent},
     
 ];
