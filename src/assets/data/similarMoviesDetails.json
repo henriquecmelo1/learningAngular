@@ -1,0 +1,17 @@
+[
+    {
+      "imageUrl": "/assets/posters/shrek.jpg",
+      "title": "Shrek",
+      "rate": 10
+    },
+    {
+      "imageUrl": "/assets/posters/batman.jpg",
+      "title": "Batman",
+      "rate": 9
+    },
+    {
+      "imageUrl": "/assets/posters/venom.webp",
+      "title": "Venom",
+      "rate": 7
+    }
+  ]

@@ -1,0 +1,23 @@
+[
+    {
+      "rate": 5,
+      "review": "This is the best movie ever!",
+      "author": "John Doe",
+      "usefulCount": 100,
+      "totalCount": 120
+    },
+    {
+      "rate": 4,
+      "review": "This is a great movie!",
+      "author": "Jane Doe",
+      "usefulCount": 80,
+      "totalCount": 100
+    },
+    {
+      "rate": 3,
+      "review": "This is a good movie!",
+      "author": "John Smith",
+      "usefulCount": 60,
+      "totalCount": 80
+    }
+  ]
