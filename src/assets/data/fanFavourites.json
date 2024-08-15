@@ -1,0 +1,29 @@
+[
+    {
+    "imageUrl": "assets/posters/shrek.jpg",
+    "title": "Shrek",
+    "actors": ["Mike Myers", "Eddie Murphy", "Cameron Diaz"
+        ],
+    "year": 2001,
+    "rate": 7.8,
+    "rank": 1
+    },
+    {
+    "imageUrl": "assets/posters/us-poster.jpeg",
+    "title": "Us",
+    "actors": ["Lupita Nyong\"o", "Winston Duke", "Elisabeth Moss"
+        ],
+    "year": 2019,
+    "rate": 6.9,
+    "rank": 5
+    },
+    {
+    "imageUrl": "assets/posters/venom.webp",
+    "title": "Venom",
+    "actors": ["Tom Hardy", "Michelle Williams", "Riz Ahmed"
+        ],
+    "year": 2018,
+    "rate": 6.7,
+    "rank": 4
+    }
+]

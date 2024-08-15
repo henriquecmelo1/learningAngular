@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-details-actors',
@@ -8,33 +9,21 @@ import { Component } from '@angular/core';
   templateUrl: './details-actors.component.html',
   styleUrl: './details-actors.component.css'
 })
-export class DetailsActorsComponent {
+export class DetailsActorsComponent implements OnInit {
 
-  actors = [
-    {
-      name: 'Jack Black',
-      role: 'Po (voice)',
-      imageUrl: '/assets/actors/jack-black.webp'
-    },
-    {
-      name: 'Jack Black',
-      role: 'Po (voice)',
-      imageUrl: '/assets/actors/jack-black.webp'
-    },
-    {
-      name: 'Jack Black',
-      role: 'Po (voice)',
-      imageUrl: '/assets/actors/jack-black.webp'
-    },
-    {
-      name: 'Jack Black',
-      role: 'Po (voice)',
-      imageUrl: '/assets/actors/jack-black.webp'
-    },
-    {
-      name: 'Jack Black',
-      role: 'Po (voice)',
-      imageUrl: '/assets/actors/jack-black.webp'
-    }
-  ];
+  actors: any[] = [];
+
+  constructor(private httpClient: HttpClient) {
+    
+  }
+
+  ngOnInit(): void {
+    this.getActors();
+  }
+
+  getActors(){
+    this.httpClient.get<any[]>('assets/data/actorsDetails.json').subscribe((data: any[]) => {
+      this.actors = data;
+    })
+  }
 }

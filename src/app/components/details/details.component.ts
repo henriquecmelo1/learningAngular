@@ -5,6 +5,7 @@ import { DetailsActorsComponent } from '../details-actors/details-actors.compone
 
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -13,32 +14,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
-export class DetailsComponent{
-  
-  movieId = ''
-  
-  
-  actors = ['Jack Black', 'Angelina Jolie', 'Seth Rogen', 'Jackie Chan'];
-  directors = ['Mark Osborne', 'John Stevenson'];
-  genres = ['Animation', 'Action', 'Adventure'];
+export class DetailsComponent implements OnInit {
 
-  
-  constructor(private _activatedRoute: ActivatedRoute) {
+  movieId = ''
+
+
+  actors: any[] = [];
+  directors: any[] = [];
+  genres: any[]= [];
+
+
+  constructor(private _activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
     this._activatedRoute.params.subscribe((params) => {
       this.movieId = params['id'];
     })
   }
-  
-  // ngOnChanges(): void { //no input so it will not be called
-  //   console.log('DetailsComponent: ngOnChanges');
-  // }
-  // ngOnInit(): void {
-  //   console.log('DetailsComponent: ngOnInit');
-  // }
-  // ngAfterContentInit(): void {
-  //   console.log('DetailsComponent: ngAfterContentInit');
-  // }
-  // ngAfterViewInit(): void {
-  //   console.log('DetailsComponent: ngAfterViewInit');
-  // }
+
+  ngOnInit(): void {
+    this.loadMovieDetails();
+  }
+
+  loadMovieDetails() {
+    this.httpClient.get('assets/data/movieDetails.json').subscribe((data: any) => {
+      this.actors = data.actors;
+      this.directors = data.directors;
+      this.genres = data.genres;
+    })
+  }
+
 }

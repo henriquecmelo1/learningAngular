@@ -1,0 +1,17 @@
+[
+    {
+        "imageUrl": "assets/posters/us-poster.jpeg",
+        "title": "Us",
+        "actors": ["Lupita Nyong\"o", "Winston Duke", "Elisabeth Moss"]
+      },
+      {
+        "imageUrl": "assets/posters/shrek.jpg",
+        "title": "Shrek",
+        "actors": ["Mike Myers", "Eddie Murphy", "Cameron Diaz"]
+      },
+      {
+        "imageUrl": "assets/posters/venom.webp",
+        "title":	"Venom",
+        "actors": ["Tom Hardy", "Michelle Williams", "Riz Ahmed"]
+      }
+]

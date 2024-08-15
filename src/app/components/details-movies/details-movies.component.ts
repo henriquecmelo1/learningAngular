@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-details-movies',
@@ -8,24 +9,23 @@ import { Component } from '@angular/core';
   templateUrl: './details-movies.component.html',
   styleUrl: './details-movies.component.css'
 })
-export class DetailsMoviesComponent {
+export class DetailsMoviesComponent implements OnInit{
 
-  movies = [
-    {
-      imageUrl: '/assets/posters/shrek.jpg',
-      title: 'Shrek',
-      rate: 10
-    },
-    {
-      imageUrl: '/assets/posters/batman.jpg',
-      title: 'Batman',
-      rate: 9
-    },
-    {
-      imageUrl: '/assets/posters/venom.webp',
-      title: 'Venom',
-      rate: 7
-    },
-  ];
+  movies: any[] = [];
+
+  constructor(private httpClient: HttpClient) {
+    
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
+  }
+
+  getMovies(){
+    this.httpClient.get<any[]>('assets/data/similarMoviesDetails.json').subscribe((data: any[]) => {
+      this.movies = data;
+    })
+  }
+
 
 }

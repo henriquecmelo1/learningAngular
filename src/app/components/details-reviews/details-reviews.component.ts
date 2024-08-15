@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-details-reviews',
@@ -8,30 +9,22 @@ import { Component } from '@angular/core';
   templateUrl: './details-reviews.component.html',
   styleUrl: './details-reviews.component.css'
 })
-export class DetailsReviewsComponent {
+export class DetailsReviewsComponent implements OnInit{
 
-  reviews:any[] = [
-    {
-      rate: 5,
-      review: 'This is the best movie ever!',
-      author: 'John Doe',
-      usefulCount: 100,
-      totalCount: 120,
-    },
-    {
-      rate: 4,
-      review: 'This is a great movie!',
-      author: 'Jane Doe',
-      usefulCount: 80,
-      totalCount: 100,
-    },
-    {
-      rate: 3,
-      review: 'This is a good movie!',
-      author: 'John Smith',
-      usefulCount: 60,
-      totalCount: 80,
-    },
-  ];
+  reviews:any[] = [];
+
+  constructor(private httpClient: HttpClient) { 
+
+  }
+
+  ngOnInit(): void {
+    this.getReviews();
+  }
+
+  getReviews(){
+    this.httpClient.get<any[]>('assets/data/reviewsDetails.json').subscribe((data: any[]) => {
+      this.reviews = data;
+    })
+  }
 
 }
