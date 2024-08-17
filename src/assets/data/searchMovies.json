@@ -1,0 +1,21 @@
+[
+    {
+        "id": "1",
+        "imageUrl": "/assets/posters/batman.jpg",
+        "title": "Batman",
+        "description": "Batman is a 1989 American superhero film directed by Tim Burton and produced by Jon Peters, based on the DC Comics character of the same name."
+    },
+    {
+        "id": "2",
+        "imageUrl": "/assets/posters/batman.jpg",
+        "title": "Batman",
+        "description": "Batman is a 1989 American superhero film directed by Tim Burton and produced by Jon Peters, based on the DC Comics character of the same name."
+    },
+    {
+        "id": "3",
+        "imageUrl": "/assets/posters/batman.jpg",
+        "title": "Batman",
+        "description": "Batman is a 1989 American superhero film directed by Tim Burton and produced by Jon Peters, based on the DC Comics character of the same name."
+    }
+
+]

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-details-reviews',
@@ -13,7 +13,7 @@ export class DetailsReviewsComponent implements OnInit{
 
   reviews:any[] = [];
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private moviesService: MoviesService) { 
 
   }
 
@@ -22,7 +22,7 @@ export class DetailsReviewsComponent implements OnInit{
   }
 
   getReviews(){
-    this.httpClient.get<any[]>('assets/data/reviewsDetails.json').subscribe((data: any[]) => {
+    this.moviesService.getReviews().subscribe((data: any[]) => {
       this.reviews = data;
     })
   }

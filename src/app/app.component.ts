@@ -21,5 +21,5 @@ import { SearchComponent } from './components/search/search.component';
   
 })
 export class AppComponent {
-  fullName = "Henrique Carvalho de Melo";
+  
 }

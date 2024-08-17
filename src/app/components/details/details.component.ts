@@ -1,11 +1,12 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DetailsMoviesComponent } from '../details-movies/details-movies.component';
 import { DetailsReviewsComponent } from '../details-reviews/details-reviews.component';
 import { DetailsActorsComponent } from '../details-actors/details-actors.component';
 
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { MoviesService } from '../../services/movies.service';
+
 
 @Component({
   selector: 'app-details',
@@ -24,18 +25,18 @@ export class DetailsComponent implements OnInit {
   genres: any[]= [];
 
 
-  constructor(private _activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
-    this._activatedRoute.params.subscribe((params) => {
+  constructor(private activatedRoute: ActivatedRoute, private moviesService: MoviesService) {
+    this.activatedRoute.params.subscribe((params) => {
       this.movieId = params['id'];
     })
   }
 
   ngOnInit(): void {
-    this.loadMovieDetails();
+    this.getMovieDetails();
   }
 
-  loadMovieDetails() {
-    this.httpClient.get('assets/data/movieDetails.json').subscribe((data: any) => {
+  getMovieDetails() {
+    this.moviesService.getMovieDetails().subscribe((data: any) => {
       this.actors = data.actors;
       this.directors = data.directors;
       this.genres = data.genres;

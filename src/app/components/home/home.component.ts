@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderDirective } from '../../directives/header.directive';
 
 import { RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { MoviesService } from '../../services/movies.service';
 
 
 @Component({
@@ -19,24 +19,40 @@ export class HomeComponent implements OnInit {
 
   cards: any[] = [];
 
-  constructor(private httpClient: HttpClient) {
-    
-  }
+  constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
     this.getFanFavouriteMovies();
     this.getTopMovies();
   }
 
-  getFanFavouriteMovies(){
-    this.httpClient.get<any[]>('assets/data/fanFavourites.json').subscribe((data: any[]) => {
-      this.fanFavouriteMovies = data;
+  getFanFavouriteMovies() {
+    this.moviesService.getFanFavouriteMovies().subscribe({
+      next: (data: any[]) => {
+        this.fanFavouriteMovies = data;
+      },
+      error: (error) => {
+        console.log('Error loading fan favourites: ', error);
+      },
+      complete: () => {
+        console.log('getFanFavouriteMovies loaded successfully');
+      }
+
     })
   }
 
-  getTopMovies(){
-    this.httpClient.get<any[]>('assets/data/topMovies.json').subscribe((data: any[]) => {
-      this.cards = data;
+  getTopMovies() {
+    this.moviesService.getTopMovies().subscribe({
+      next: (data: any[]) => {
+        this.cards = data;
+      },
+      error: (error) => {
+        console.log('Error loading top movies: ', error);
+      },
+      complete: () => {
+        console.log('getTopMovies loaded successfully');
+      }
+
     })
   }
 }

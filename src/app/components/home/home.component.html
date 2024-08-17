@@ -76,7 +76,7 @@
   <!-- Fan Favorites -->
   <h1>Fan Favorites</h1>
   <div class="col-md-3" *ngFor="let movie of fanFavouriteMovies">
-    <div class="card" routerLink="details/1">
+    <div class="card" routerLink="/details/1">
       <img [src]="movie.imageUrl" style="max-height: 350px;" class="card-image">
       <div class="card-body">
         <h5>{{movie.title}}</h5>

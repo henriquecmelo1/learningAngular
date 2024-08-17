@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-details-actors',
@@ -13,7 +13,7 @@ export class DetailsActorsComponent implements OnInit {
 
   actors: any[] = [];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private moviesService: MoviesService) {
     
   }
 
@@ -22,7 +22,7 @@ export class DetailsActorsComponent implements OnInit {
   }
 
   getActors(){
-    this.httpClient.get<any[]>('assets/data/actorsDetails.json').subscribe((data: any[]) => {
+    this.moviesService.getActors().subscribe((data: any[]) => {
       this.actors = data;
     })
   }
