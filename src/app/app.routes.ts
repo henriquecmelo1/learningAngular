@@ -17,6 +17,7 @@ export const routes: Routes = [
     {path: 'details/movies/:id', component: Components.DetailsMoviesComponent},
     {path: 'details/reviews/:id', component: Components.DetailsReviewsComponent},
     {path: 'search/:movieTitle', component: Components.SearchComponent},
+    {path: 'feedback', component: Components.FeedbackComponent},
     //page for non-existent url
     {path: '**', component: Components.NotFoundComponent},
     

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback()">
+                <legend>Let us know what you think!</legend>
+                <hr>
+                <div class="mb-3">
+                    <label for="emailAddress" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="emailAddress" placeholder="Ex: johndoe@gmail.com" name="emailAddress"
+                    [(ngModel)]="feedback.emailAddress">
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Ex: (81) 98105-0511" name="phoneNumber"
+                    [(ngModel)]="feedback.phoneNumber">
+                </div>
+                <div class="mb-3">
+                    <label for="rateExperience" class="form-label">Rate your experience!</label>
+                    <input type="range" class="form-range" id="rateExperience" min="0" max="10" step="1" name="rateExperience"
+                    [(ngModel)]="feedback.rateExperience">
+                </div>
+                <h5>Your feedback: {{feedback.rateExperience}}</h5><br>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Feedback Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Your feedback title" name="title"
+                    [(ngModel)]="feedback.title">
+                </div>
+                <div class="mb-3">
+                    <label for="feedback" class="form-label">Feedback</label>
+                    <input type="text" class="form-control" id="feedback" placeholder="Your feedback here" name="feedback"
+                    [(ngModel)]="feedback.feedback">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-send"></i> Submit Feedback
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

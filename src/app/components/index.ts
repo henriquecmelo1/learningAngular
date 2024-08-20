@@ -5,3 +5,4 @@ export { DetailsActorsComponent } from './details-actors/details-actors.componen
 export { DetailsMoviesComponent } from './details-movies/details-movies.component';
 export { DetailsReviewsComponent } from './details-reviews/details-reviews.component';
 export { NotFoundComponent } from './not-found/not-found.component';
+export { FeedbackComponent } from './feedback/feedback.component';
