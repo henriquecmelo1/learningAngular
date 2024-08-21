@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../../data/model/Feedback';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [FormsModule],
-  providers: [],
+  imports: [FormsModule, CommonModule],
+  providers: [NgModel],
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.css'
 })
-export class FeedbackComponent implements OnInit{
-  
+export class FeedbackComponent implements OnInit {
+
   feedback: Feedback = new Feedback('', '', 5, '', '');
 
   ngOnInit(): void {
-    
+
   }
 
   submitFeedback() {
-    console.log("form submitted");
+    console.log("Feedback form [Submit] - ", this.feedback);
   }
 
 }

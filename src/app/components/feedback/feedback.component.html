@@ -4,35 +4,64 @@
             <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback()">
                 <legend>Let us know what you think!</legend>
                 <hr>
+                <!-- email -->
                 <div class="mb-3">
                     <label for="emailAddress" class="form-label">Email Address</label>
                     <input type="email" class="form-control" id="emailAddress" placeholder="Ex: johndoe@gmail.com" name="emailAddress"
-                    [(ngModel)]="feedback.emailAddress">
+                    [(ngModel)]="feedback.emailAddress" required email #emailInput="ngModel" >
+                    <!-- checking errors -->
+                    <div class="text-danger" *ngIf="emailInput.invalid && (emailInput.dirty || feedbackForm.submitted)">
+                        <div *ngIf="emailInput.hasError('required')">Email is required</div>
+                        <div *ngIf="emailInput.hasError('email')">Invalid email</div>
+                    </div>
                 </div>
+
+                <!-- phone number -->
                 <div class="mb-3">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="Ex: (81) 98105-0511" name="phoneNumber"
-                    [(ngModel)]="feedback.phoneNumber">
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Ex: 99999999999" name="phoneNumber"
+                    [(ngModel)]="feedback.phoneNumber" pattern="[0-9]{11}" #phoneInput="ngModel">
+                    <!-- checking errors -->
+                    <div class="text-danger" *ngIf="phoneInput.invalid && (phoneInput.dirty || feedbackForm.submitted)">
+                        <div *ngIf="phoneInput.hasError('pattern')">Invalid phone number</div>
+                    </div>
+                    
+
                 </div>
+
+                <!-- rate experience -->
                 <div class="mb-3">
                     <label for="rateExperience" class="form-label">Rate your experience!</label>
                     <input type="range" class="form-range" id="rateExperience" min="0" max="10" step="1" name="rateExperience"
                     [(ngModel)]="feedback.rateExperience">
                 </div>
                 <h5>Your feedback: {{feedback.rateExperience}}</h5><br>
+
+                <!-- feedback title -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Feedback Title</label>
                     <input type="text" class="form-control" id="title" placeholder="Your feedback title" name="title"
-                    [(ngModel)]="feedback.title">
+                    [(ngModel)]="feedback.title" required #titleInput="ngModel">
+                    <!-- checking errors -->
+                    <div class="text-danger" *ngIf="titleInput.invalid && (titleInput.dirty || feedbackForm.submitted)">
+                        <div *ngIf="titleInput.hasError('required')">Title is required</div>
+                    </div>
                 </div>
+
+                <!-- feedback -->
                 <div class="mb-3">
                     <label for="feedback" class="form-label">Feedback</label>
                     <input type="text" class="form-control" id="feedback" placeholder="Your feedback here" name="feedback"
-                    [(ngModel)]="feedback.feedback">
+                    [(ngModel)]="feedback.feedback" required #feedbackInput="ngModel">
+                    <!-- checking errors -->
+                    <div class="text-danger" *ngIf="feedbackInput.invalid && (feedbackInput.dirty || feedbackForm.submitted)">
+                        <div *ngIf="feedbackInput.hasError('required')">Feedback is required</div>
+                    </div>
                 </div>
 
+                <!-- submit button -->
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" [disabled]="!feedbackForm.valid">
                         <i class="bi bi-send"></i> Submit Feedback
                     </button>
                 </div>
